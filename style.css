@@ -18,7 +18,7 @@ body {
 .header-section{
     /* position: relative; */
     width: 700px;
-    height: 125px;
+    height: 100px;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -82,6 +82,7 @@ body {
 }
 
 .links{
+    height: 40px;
     margin: 0px 0px 0px 0px;
 }
 
