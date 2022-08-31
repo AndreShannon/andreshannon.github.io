@@ -75,7 +75,8 @@ body {
 
 /* 4656 × 2218 */
 .img-frame2 img {
-    width: 1475px;
+    width: 100%;
+    /* width: 1475px; */
     height: 734px;
     margin: -250px 0px 0px 0px;
     /* border: 5px solid black; */
