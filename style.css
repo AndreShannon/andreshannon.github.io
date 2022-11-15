@@ -69,18 +69,33 @@ body {
     position: relative;
     /* top: 0px; */
     /* width: 1475px; */
-    height: 300px;
+    /* height: 300px; */
     overflow: hidden;
 }
 
 /* 4656 × 2218 */
+/* Original dimensions 4656 × 922 */
 .img-frame2 img {
-    width: 100%;
-    /* width: 1475px; */
-    height: 734px;
-    margin: -250px 0px 0px 0px;
+    object-fit: scale-down;
+    object-position: center;
+    width: 1475px;
+    /* width: 100%; */
+    /* width: 1000px; */
+    /* height: 734px; */
+    /* height: 292px; */
+    /* height: 100%; */
+    /* margin: -250px 0px 0px 0px; */
+
+    /* margin-left: auto;
+    margin-right: auto; */
     /* border: 5px solid black; */
 }
+
+/* #yosemite {
+    object-fit: scale-down;
+    object-position: center;
+    width: 1475px;
+} */
 
 .links{
     height: 40px;
