@@ -5,11 +5,64 @@
 body {
     color: black;
     background-color: white;
-    margin: 0;
+    height: 100%;
+    /* order: top right bottom left */
+    /* margin: 30px 0px 0px 0px; */
+    margin: 0px;
     padding: 0;
+    font-size: 100%;
 }
 
+/* Set height of body and the document to 100% to enable "full page tabs" */
+html {
+    height: 100%;
+    margin: 0;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    /* padding: 14px 0px; */
+    /* margin-left: 40%; */
+    font-size: 17px;
+    /* width: 25%; */
+    width: 120px;
+    height:100%;
+}
+
+.pageTabs{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height:30px;
+    z-index: 1;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: black;
+    display: none;
+    /* padding: 52px 0px; */
+    /* padding-top: 30px; */
+    height: 100%;
+}
+
+#Home {background-color: white;}
+#Research {background-color: white;}
+
+
 .container{
+    /* Could use margin %s instead of set width */
     width: 700px;
     margin: 0px auto;
     /* padding: 5px; */
@@ -120,4 +173,45 @@ body {
 .snowFlake img{
     width: 200px;
     height: 200px;
+}
+
+.snowflake-divider{
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 0px 0px;
+}
+
+.snowflake-divider img{
+    width: 50px;
+    height: 50px;
+}
+
+
+.research-section{
+    /* width: 700px; */
+    /* height: 100px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left; */
+    margin: 30px 10px 0px 10px;
+}
+
+.research-section h3{
+    /* margin: 20px 0px 0px 0px; */
+    margin: 1.25em 0em 0em 0em;
+}
+
+.research-section h4{
+    font-weight: 500;
+    font-size: medium;
+    margin: 0px;
+}
+
+.research-section p{
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
 }
