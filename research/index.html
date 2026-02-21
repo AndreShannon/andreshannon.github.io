@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>André Shannon — Research</title>
+    <link rel="shortcut icon" href="/assets/img/code.svg" />
+    <script src="https://kit.fontawesome.com/5c74fa51f8.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <link rel="canonical" href="https://andreshannon.github.io/research/" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="André Shannon — mathematics and computer science; interests in AI, machine learning, reinforcement learning, and robotics." />
+</head>
+
+<body>
+    <header>
+        <nav class="pageTabs" aria-label="Primary">
+            <a class="tablink" href="/">Home</a>
+            <a class="tablink active" href="/research/" aria-current="page">Research</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="Research" class="tabcontent" style="display:block;">
+            <div class="img-frame2">
+                <img id="yosemite4" src="/assets/img/Yosemite4.jpg" alt="Yosemite again!!!" />
+            </div>
+
+            <div class="research-section">
+                <h3>Developing Provably Robust Explanation Methods for Image Classifiers</h3>
+                <h4>Fall 2021 - Spring 2022</h4>
+                <span id="more" style="display:none;">
+                    <p>
+                        I conducted this research as part of my computer science honors
+                        thesis with Dr. Douglas Szajda as my advisor and in collaboration
+                        with PhD candidates Daniel Capecci and Hadi Abdullah at the University
+                        of Florida. This research partially
+                        stemmed from my summer 2021 research with Dr. Szajda of applying
+                        an explanation method to an automated voice processing system and its not
+                        so satisfactory conclusion. Explanation methods have been developed
+                        to help expose the "reasonging" behind specific machine learning
+                        model decisions, but we started questioning the reliability of them.
+                        Thus this research was aimed at creating a provably robust explanation
+                        method.
+                        <br>
+                        <br>
+                        We noticed that explanations can vary significantly, even for very
+                        similar inputs. For example, given a picture of a dog and a corresponding
+                        explanation, we could slightly tweak the image by changing several
+                        pixel values and end up with a completely different explanation.
+                        In order to create provably robust explanation methods, we applied the
+                        randomized smoothing technique, used by
+                        <a href="https://arxiv.org/abs/1902.02918" target="_blank" rel="noopener noreferrer">Cohen et al.</a>,
+                        to the explanation methods. This would theoretically give us a guaranteed space
+                        around a specific input such that any input from that space would
+                        have the same/similar explanation.
+                        <br>
+                        <br>
+                        The randomized smoothing technique essentially creates another
+                        classifier based on the original which samples the space
+                        around the input and returns the class that has the majority
+                        after the original classifier classifies all the samples.
+                        Based on the percentage of the majority, you can then certify a
+                        smaller space around the input for which any other sample from
+                        there will be classified the same if run throught the new classifier.
+                        This makes sense intuitively since an input from the certified space
+                        will have to sample most of the same space as the original input when
+                        run through the new classifier. Adapting this to explanation methods,
+                        we would create a new explanation method that takes the majority of
+                        a bunch of explanations from the original explanation method and
+                        theoretically would also be able to certify points. However, we
+                        ran into all sorts of complications which I will leave in my
+                        honors thesis for now.
+                    </p>
+                    <a href="https://scholarship.richmond.edu/honors-theses/1656" target="_blank" rel="noopener noreferrer">Honors Thesis (Abstract)</a><br>
+                    <a href="/assets/docs/Honors_Thesis.pdf" target="_blank" rel="noopener noreferrer">Honors Thesis (Full)</a><br>
+                    <a href="/assets/docs/HonorsThesisColloquiumTalk.pdf" target="_blank" rel="noopener noreferrer">Presentation Slides</a>
+                    <br><br>
+                </span>
+                <button class="moreLess" type="button" onclick="showMoreLess(document.getElementById('more'), document.getElementById('btn1'))" id="btn1"><i>About</i></button>
+
+
+                <h3>Understanding the "Reasoning" of Automated Voice Processing Systems</h3>
+                <h4>Summer 2021</h4>
+                <span id="more2" style="display:none;">
+                    <p>
+                        In the summer of 2021, I worked on developing an explanation method
+                        for automated voice processing systems (VPSes) in collaboration with
+                        six other students and under the guidance of Dr. Douglas Szajda.
+                        Aside from big name automated VPSes such as Amazon Alexa, Apple Siri, and Google
+                        Assistant, automated VPSes can also be found in devices that are
+                        too small for traditional interfaces or are going for a more user friendly
+                        or accessible interface. Given the commands the automated VPSes are designed
+                        to interpret and execute, the security of the VPSes is especially
+                        important. There have been successful attacks developed against
+                        automated VPSes, most of which exploit the deep learning model within
+                        the automated VPS pipelines. These attacks can force the user and
+                        the automated VPS to interpret the same audio differently. For example,
+                        an advisary might play noise which sounds like white noise or is
+                        even inaudiable to a user, but is interpreted and executed as a
+                        specific command by the automated VPS. These attacks exploit the
+                        differences between how humans and deep learning systems process
+                        sound. However, our understanding of those differences is limited; we
+                        do not understand why some attacks succeed when similar attacks fail.
+                        Our research seeks to shed light on how VPSes "reason", in order
+                        to gain a better understanding of the factors they use during
+                        classification, thus understanding potential new attacks and defenses.
+                        <br>
+                        <br>
+                        To get a better understanding of what VPSes base their decision
+                        on during classification, we adapted the LIME explanation method
+                        (developed by
+                        <a href="https://arxiv.org/abs/1602.04938" target="_blank" rel="noopener noreferrer">Ribeiro et al.</a>)
+                        to work with DeepSpeech2 (a deep neural network speech recognition model,
+                        <a href="https://nvidia.github.io/OpenSeq2Seq/html/speech-recognition/deepspeech2.html" target="_blank" rel="noopener noreferrer">documentation</a>,
+                        <a href="https://arxiv.org/abs/1512.02595" target="_blank" rel="noopener noreferrer">paper</a>).
+                        We wanted the explanation of a particular classification to tell us
+                        which frequencies within the original audio had the biggest impact
+                        on the classification. The idea being that if a particular character
+                        had a few key frequencies that consistently had a big impact on the
+                        classification, then adding or eliminating those frequencies
+                        from an audio could predictably change how the automated VPS would interpret
+                        the audio while a user might not be able to discern a noticable difference.
+                        However, after tackling the challenges of adapting LIME and generating
+                        explanations, we found that even for a particular character in the
+                        same word spoken by different people, the explanations can vary wildly.
+                        There was not a set of key frequencies that corresponded to all
+                        classification of a specific character. Upon reflecting on the
+                        characteristics of the feature space, we realized that this was
+                        an unreasonable expectation and that if there were sets of key
+                        frequencies corresponding to specific characters, there would be
+                        many more than just one.
+                    </p>
+                    <a href="/assets/docs/Spring Symposium Poster 2022.pptx.pdf" target="_blank" rel="noopener noreferrer">Symposium Poster</a><br>
+                    <a href="https://github.com/AndreShannon/Summer-Research-2021" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+                    <br><br>
+                </span>
+                <button class="moreLess" type="button" onclick="showMoreLess(document.getElementById('more2'), document.getElementById('btn2'))" id="btn2"><i>About</i></button>
+
+
+                <h3>Defining Safety for Self-Driving Cars</h3>
+                <h4>Summer 2020</h4>
+                <span id="more3" style="display:none;">
+                    <p>
+                        In the summer of 2020, I worked on safety oriented motion planning
+                        for non-holonomic models under the guidance of Dr. Jory Denny and
+                        with a fellow student, Vadim Kudlay. The non-holonomic models we
+                        were working with were various car-like models that had constraints
+                        on how they could move. We wanted to maximize the safety of the path
+                        the model would take by being the furthest possible from obstacles.
+                        This involves moving along the medial axis. One definition of the
+                        medial axis is all the points in an environment that are equidistant
+                        from two or more obstacles. However, when we looked at the medial
+                        axis in the state space of these non-holonomic models, we found
+                        discrepancies between the multiple definitions of the medial axis
+                        and that, for some definitions, the medial axis is not always continuous.
+                        This exciting find piqued the interest of a math professor, Dr.
+                        Jeremy LeCrone, who joined the project. Other than exploring the
+                        medial axis in various state spaces, Vadim and I worked on
+                        algorithms for computing the clearance of a given state and sampling
+                        for points on the medial axis.
+                    </p>
+                    <a href="/assets/docs/TechnicalReport.pdf" target="_blank" rel="noopener noreferrer">Technical Report</a><br>
+                    <a href="/assets/docs/MASlides.pdf" target="_blank" rel="noopener noreferrer">Presentation Slides</a>
+                    <br><br>
+                </span>
+                <button class="moreLess" type="button" onclick="showMoreLess(document.getElementById('more3'), document.getElementById('btn3'))" id="btn3"><i>About</i></button>
+
+
+                <h3>Transmitting, Compressing, and Denoising Images</h3>
+                <h4>Summer 2019</h4>
+                <span id="more4" style="display:none;">
+                    <p>
+                        Under the guidance of Dr. William Ross, I collaborated with four
+                        other students to explore transmittion, compression, and denoising
+                        of images.
+                        <br>
+                        <br>
+                        Transmitting:<br>
+                        When data (in our experiments, images) is sent, it has the chance
+                        of getting corrupted, especially if it travels through a noisy
+                        channel. We looked at mitigating this corruption by over-sending
+                        the data using frames. This had mixed success with the images we
+                        tried it out on. We would randomly corrupt a few pixels and those
+                        could be easily seen if the image was sent normaly. However, using
+                        frames reduced the errors but affected many more pixels as it
+                        essentially averaged the errors throughout the entire image.
+                        <br>
+                        <br>
+                        Compression:<br>
+                        We looked a ways of commpressing images so that we could store as
+                        little data as possible while still retaining an accurate image.
+                        For this we used the Discrete Cosine Transform to get the Fourier
+                        coefficients of the images. Since we can take the inverse Discrete
+                        Cosine Transform of the coefficients to get back to the oringinal
+                        image, we can store just the coefficients to store the image. It
+                        turns out that we can get away with not storing all the coefficients
+                        and still have a mostly accurate image. This is because the The
+                        lower frequency coefficients correspond to overall, big picture
+                        details of the image while the higher frequency coefficients
+                        correspond to highly specific details. We can remove a big chunk
+                        of the higher frequency coefficients (sometimes over 25%) and, converting
+                        back to the image, a human eye would be hard pressed to discern
+                        the difference between it and the original.
+                        <br>
+                        <br>
+                        Denoising:<br>
+                        For this part of the research, we were looking at images that were
+                        already corrupted by noise and ways to restore or "denoise" them
+                        through the use of waveletes. Taking the discrete wavelet transform
+                        of an image would yield a matrix that can be split into four sections:
+                        one that is composed of averages of adjacent pixels, and three that are the horizontal,
+                        vertical, and diagonal differences between adjacent pixels. We can then change
+                        the diagonal differences so that small differences are changed to
+                        zero while any above a certain threshold remain the same (this is
+                        one example of how it can be thresholded, there are several other
+                        ways). The idea behind removing small diagonal differences is that
+                        noise will usually be small random changes in pixel values (yielding
+                        small diagonal differences) while the original picture will usually
+                        have starker differences (yielding big diagonal differences).
+                        Taking the inverse wavelet transform of the thresholded data would
+                        then hopefully return the image with most of the noise removed and
+                        the underlying picture  more or less intact.
+                    </p>
+                    <a href="/assets/docs/Frames Poster.pdf" target="_blank" rel="noopener noreferrer">Symposium Poster</a><br>
+                    <a href="/assets/docs/FramesTalk.pdf" target="_blank" rel="noopener noreferrer">Presentation Slides</a>
+                    <br><br>
+                </span>
+                <button class="moreLess" type="button" onclick="showMoreLess(document.getElementById('more4'), document.getElementById('btn4'))" id="btn4"><i>About</i></button>
+
+
+                <h3>Arctic Geophysics Research</h3>
+                <h4>Spring 2018</h4>
+                <span id="more5" style="display:none;">
+                    <p>
+                        This research was a collaboration between Southwest Virginia
+                        Governor's School and Radford University. Every two years, Dr.
+                        Rhett Herman takes a team of students up to Utqiagvik, Alaska
+                        for a week or two in efforts to develop a fast and effective way
+                        of measureing the thickness of sea ice. We designed, built, and
+                        tested some of our own equipment. One piece of equipment we built
+                        from scratch was a cart that measured the surface temperature of
+                        the ice and the air temperature several increments above the ice.
+                        My group of three's role in this research was to see if the
+                        surface temperature of the ice correlates with the tickness of
+                        the ice. If we could find a strong correlation, then that would
+                        hopefully allow us to build a model to predict the thickness of
+                        the sea ice using its surface temperatures.
+                        <br><br>
+                        We started by building a model to predict the temperature
+                        distribution throughout the ice. We know the temperature of the
+                        seawater just below the ice (freezing point of seawater) and our measurements would give us
+                        the temperature right above the ice, so we wanted to use equations
+                        of thermal conduction and radiation to tease out the temperatures
+                        at several depths within ice. We used Excels iterative function
+                        to model different depths of the ice, haveing all the middle
+                        cells (various depths within the ice) depend on the bottom cell
+                        (seawater at freezing point) and the top cell (our measurements).
+                        The problem with this was that the thermal conductivity of the
+                        ice wasn't constant. The bottom of the ice wasn't completely solid,
+                        more like slush, and that would change the thermal conductivity.
+                        Thus we also had to model a varying thermal conductivity value to
+                        use in our formulas for thermal conduction.
+
+                        That was as far as we
+                        ended up getting, it seemed promising, but we ran out of time.
+
+                        We presented our research both in a library at Utqiagvik and at
+                        the Radford University Planetarium.
+                    </p>
+                    <a href="https://andreshannonarcticgeophysics.wordpress.com" target="_blank" rel="noopener noreferrer">Here</a>
+                    is a blog I did for the trip with lots of pictures. <br>
+                    <a href="/assets/docs/ArcticGeophysicsPoster.pdf" target="_blank" rel="noopener noreferrer">Poster</a>
+                    <br><br>
+                </span>
+                <button class="moreLess" type="button" onclick="showMoreLess(document.getElementById('more5'), document.getElementById('btn5'))" id="btn5"><i>About</i></button>
+
+                <script>
+                    function showMoreLess(text, bText) {
+                        var moreText = text;
+                        var btnText = bText;
+
+                        if (moreText.style.display === "inline") {
+                            btnText.innerHTML = "<i>About</i>";
+                            moreText.style.display = "none";
+                        } else {
+                            btnText.innerHTML = "<i>show less</i>";
+                            moreText.style.display = "inline";
+                        }
+                    }
+                </script>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>

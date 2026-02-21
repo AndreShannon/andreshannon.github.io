@@ -1,0 +1,255 @@
+/* =========================================================
+   Base / Reset
+   ========================================================= */
+
+:root {
+  font-family: "Roboto Mono";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: black;
+  background-color: white;
+  padding: 0;
+  font-size: 100%;
+}
+
+/* Make images behave sanely by default */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================================
+   Top Navigation (Glass Overlay Tabs)
+   ========================================================= */
+
+.pageTabs {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 10;
+
+  display: flex;
+  justify-content: flex-end;
+
+  /* solid, subtle overlay (no glass) */
+  background: rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tablink {
+  width: 120px;
+  height: 100%;
+  border: none;
+  outline: none;
+
+  /* keep your tab look */
+  background-color: rgba(85, 85, 85, 0.75);
+  color: white;
+  cursor: pointer;
+
+  font-size: 17px;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* enables underline without shifting layout */
+  border-bottom: 2px solid transparent;
+}
+
+.tablink:hover {
+  background-color: rgba(119, 119, 119, 0.85);
+}
+
+.tablink.active {
+  /* keep background change AND add underline */
+  background-color: rgba(128, 0, 128, 0.85); /* purple */
+  border-bottom-color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   Page Sections
+   ========================================================= */
+
+.tabcontent {
+  display: none;  /* pages override with inline style="display:block" */
+  height: 100%;
+  color: black;
+}
+
+/* =========================================================
+   Home Page Layout
+   ========================================================= */
+
+/* Keep tabs overlaying image, but prevent text from sitting under tabs */
+.container,
+.research-section {
+  padding-top: 30px;
+}
+
+.container {
+  width: min(700px, 100%);
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.header-section {
+  width: min(700px, 100%);
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: left;
+}
+
+.header-section h1,
+.header-section h2 {
+  color: rgb(113, 15, 113);
+  margin: 0;
+}
+
+.header-section h1 {
+  font-weight: 700;
+}
+
+.header-section h2 {
+  font-weight: 500;
+  font-size: medium;
+}
+
+/* Optional profile image (currently commented out in HTML) */
+.img-frame1 {
+  position: relative;
+  top: 0px;
+  left: 100px;
+  margin: 0px 5px 10px 50px;
+}
+
+.img-frame1 img {
+  width: 288px;
+  height: 384px;
+  border-radius: 50%;
+}
+
+/* Hero images */
+.img-frame2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-frame2 img {
+  object-fit: scale-down;
+  object-position: center;
+  width: 100%;
+}
+
+/* Links row */
+.links {
+  height: 40px;
+  margin: 0;
+}
+
+.links a {
+  color: #599dd9;
+  display: inline;
+  font-weight: 1000;
+  padding: 0 12px 0 0;
+}
+
+.links i {
+  color: black;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/* Snowflake / cat image */
+.snowFlake {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+}
+
+.snowFlake img {
+  width: 200px;
+  height: 200px;
+}
+
+/* Divider (currently unused/commented) */
+.snowflake-divider {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.snowflake-divider img {
+  width: 50px;
+  height: 50px;
+}
+
+/* =========================================================
+   Research Page
+   ========================================================= */
+
+.research-section {
+  margin: 0px 10px 0 10px;
+  padding-bottom: 30px;
+}
+
+.research-section h3 {
+  margin: 1.25em 0 0 0;
+}
+
+.research-section h4 {
+  font-weight: 500;
+  font-size: medium;
+  margin: 0;
+}
+
+.research-section p {
+  margin: 1em 0;
+}
+
+/* About buttons */
+.moreLess {
+  border: none;
+  background: none;
+  padding: 0;
+
+  color: blue;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* =========================================================
+   Responsive polish (minimal, safe)
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .header-section {
+    height: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .tablink {
+    width: 50%;
+  }
+}
