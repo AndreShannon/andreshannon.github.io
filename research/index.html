@@ -29,6 +29,40 @@
             </div>
 
             <div class="research-section">
+                <h3>Furthering GUI-Grounding for Agentic AI: An Evolving Training Dataset</h3>
+                <h4>Fall 2025 - Spring 2026</h4>
+                <span id="more6" style="display:none;">
+                    <p>
+                        For my masters thesis project at San Francisco State University,
+                        I explored an evolving training dataset as a more efficient and
+                        effective way of model training in the field of GUI-Grounding.
+                        I experimented with the Qwen2.5-VL-3B-Instruct model using the
+                        ScreenSpot-Pro benchmark and a GPU cluster of 4 Nvidia A100 80GB GPUs:
+                        <br>
+                        <br>
+                        Graphical User Interface (GUI) grounding is key component enabling
+                        agentic AI to map natural-language instructions to specific screen
+                        elements. Recent work by <a href="https://arxiv.org/html/2505.12370v1" target="_blank" rel="noopener noreferrer">Yuan et al.</a> proposed a self-evolutionary
+                        reinforcement learning method that iteratively filters the training
+                        dataset throughout training and their model, SE-GUI, achieves a
+                        notable performance on the ScreenSpot-Pro benchmark using both a
+                        small model and dataset. We build upon this self-evolutionary method,
+                        modifying the accumulation of attention maps used in the filtering method
+                        and testing on a lower quality dataset (SE-GUI dataset was not available).
+                        Our modified self-evolutionary method outperforms the original method
+                        on the lower quality dataset while approaching the SE-GUI reported
+                        results using far fewer training resources. This work highlights the
+                        importance of data quality in reinforcement learning and the potential
+                        of the modified self-evolutionary filtering method given more resources.
+                    </p>
+                    <a href="https://scholarworks.calstate.edu/concern/theses/k643b9657" target="_blank" rel="noopener noreferrer">Masters Thesis</a><br>
+                    <!-- <a href="/assets/Andre_Shannon_Masters_Thesis.pdf" target="_blank" rel="noopener noreferrer">Masters Thesis</a><br> -->
+                    <a href="/assets/docs/Masters_Oral_Defense_Presentation.pdf" target="_blank" rel="noopener noreferrer">Presentation Slides</a>
+                    <br><br>
+                </span>
+                <button class="moreLess" type="button" onclick="showMoreLess(document.getElementById('more6'), document.getElementById('btn6'))" id="btn6"><i>About</i></button>
+
+
                 <h3>Developing Provably Robust Explanation Methods for Image Classifiers</h3>
                 <h4>Fall 2021 - Spring 2022</h4>
                 <span id="more" style="display:none;">
